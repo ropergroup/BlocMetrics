@@ -16,7 +16,3 @@
     </tbody>
   </table>
 </div>
-
-<% if current_user %>
-  <%= render 'registered_applications/form', registered_applications: Registered_Application.new, user: @user %>
-<% end %>
