@@ -1,12 +1,5 @@
 class RegisteredApplicationsController < ApplicationController
 
-  def index
-    @registered_applications =RegisteredApplication.all
-  end
-
-  def show
-    @registered_applications = RegisteredApplication.find(params[:id])
-  end
 
   def create
 

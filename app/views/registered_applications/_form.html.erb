@@ -2,9 +2,9 @@
 
    <%= form_for [user, registered_applications] do |f| %>
       <div class="form-group">
-         <%= f.label :name %>
-         <%= f.text_field :name, class: 'form-control', placeholder: "Enter Task" %>
-         <%= f.number_field :exp, class: 'form-control', placeholder: "Enter # of days until item expires", value: nil, required: true %>
+         <%= f.label :appname %>
+         <%= f.text_field :appname, class: 'form-control', placeholder: "Enter Application Name" %>
+         <%= f.number_field :url, class: 'form-control', placeholder: "URL", value: nil, required: true %>
       </div>
       <div class="form-group">
          <%= f.submit "Save", class: 'btn btn-success' %>

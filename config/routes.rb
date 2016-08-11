@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   root 'users#show'
 
 
-  resources :users, only: [:show] do
-    resources :registered_applications
+  resources :users
+
 end
