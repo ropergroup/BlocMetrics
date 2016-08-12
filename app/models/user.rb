@@ -6,8 +6,4 @@ class User < ApplicationRecord
 
   has_many :registered_applications
 
-  protected
-  def confirmation_required?
-  false
-  end
 end
