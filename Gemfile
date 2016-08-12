@@ -13,6 +13,7 @@ group :development do
   gem 'sqlite3'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'listen'
 end
 
 group :development, :test do
@@ -47,5 +48,3 @@ gem 'bootstrap-sass'
 gem 'bootswatch-rails'
 
 gem 'figaro', '1.0'
-
-#gem 'listen'
