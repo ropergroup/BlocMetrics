@@ -84,11 +84,5 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.default_url_options = {:host => 'arcane-garden-26158.herokuapp.com'}
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-  :address => "smtp.sendgrid.net",
-  :port    => 2525,
-  :domain  => 'heroku.com'
-                              }
+  config.action_mailer.default_url_options = { host: 'bloccit.herokuapp.com' }
 end

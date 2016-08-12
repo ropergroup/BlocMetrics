@@ -47,4 +47,4 @@ gem 'bootstrap-sass'
 
 gem 'bootswatch-rails'
 
-gem 'figaro', '1.0'
+gem 'figaro', '1.1.1'
