@@ -10,11 +10,13 @@
         </tr>
       </thead>
       <tbody>
-        <tr class='js-items'>
-          <%= render @user.registered_applications %>
+        <tr >
+          <%=  @user.registered_applications.each do |regapps| %>
+          <p><%= link_to registered_application.title, registered_application_path(registered_application.id) %></p>
+          <% end %>
         </tr>
         <tr>
-          <%= button_to "New Application", { :action => "new" }, :method => :get %>
+          <%= button_to "New Application", new_registered_application(@user.registered_application), class: 'btn btn-success' %>
         </tr>
       </tbody>
     </table>

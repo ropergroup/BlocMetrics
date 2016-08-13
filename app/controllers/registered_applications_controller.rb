@@ -1,6 +1,11 @@
 class RegisteredApplicationsController < ApplicationController
 
 
+  def new
+     @user = User.find(params[:user_id])
+     @registered_application = RegisteredApplication.new
+   end
+
   def create
       @user = User.find(params[:user_id])
       @registered_application = @user.registered_applications.new(registered_application_params)
