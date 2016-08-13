@@ -2,4 +2,6 @@
   <td><%= registered_application.appname %> </td>
   <td><%= registered_application.url %></td>
   <td><%= link_to "", [current_user, registered_application], method: :delete, class: 'glyphicon glyphicon-ok', remote: true %></td>
+  <td><%= button_to "Edit", { :action => "edit" }, :method => :get %></td>
+  <td><%= button_to "Delete", { :action => "destory" }, :method => :delete %></td>
 <% end %>

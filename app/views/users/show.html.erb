@@ -13,6 +13,9 @@
         <tr class='js-items'>
           <%= render @user.registered_applications %>
         </tr>
+        <tr>
+          <%= button_to "New Application", { :action => "new" }, :method => :get %>
+        </tr>
       </tbody>
     </table>
   </div>
