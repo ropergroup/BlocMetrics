@@ -2,36 +2,33 @@ class RegisteredApplicationsController < ApplicationController
 
 
   def create
+      @user = User.find(params[:user_id])
+      @registered_application = @user.registered_applications.new(registered_application_params)
+      @registered_application.user = current_user
 
-      @registered_applications = RegisteredApplication.new
-      @registered_applications.appname = params[:registered_applications][:appname]
-      @registered_applications.url = params[:registered_applications][:url]
-
-      if @registered_applications.save
-
-        flash[:notice] = "Application was saved successfully."
-        redirect_to @registered_applications
+      if @registered_application.save
+        flash[:notice] = "Application saved successfully."
+        redirect_to [@user]
       else
-
-        flash.now[:alert] = "There was an error saving the application. Please try again."
-        render :new
+        flash[:alert] = "Application failed to save."
+        redirect_to [@user]
       end
   end
 
-  end
+
 
   def edit
-    @registered_applications = RegisteredApplication.find(params[:id])
+    @registered_application = RegisteredApplication.find(params[:id])
   end
 
   def update
-     @registered_applications = RegisteredApplication.find(params[:id])
-     @registered_applications.title = params[:registered_applications][:appname]
-     @registered_applications.body = params[:registered_applications][:url]
+     @registered_application = RegisteredApplication.find(params[:id])
+     @registered_application.title = params[:registered_application][:appname]
+     @registered_application.body = params[:registered_application][:url]
 
-     if @registered_applications.save
+     if @registered_application.save
        flash[:notice] = "The application was updated successfully."
-       redirect_to @registered_applications
+       redirect_to @registered_application
      else
        flash.now[:alert] = "There was an error saving the application. Please try again."
        render :edit
@@ -40,9 +37,9 @@ class RegisteredApplicationsController < ApplicationController
 
   def destroy
       @user = current_user
-      @registered_applications = @user.registered_applications.find(params[:id])
+      @registered_application = @user.registered_application.find(params[:id])
 
-    if @registered_applications.destroy
+    if @registered_application.destroy
       flash[:notice] = "The application has been completed!"
     else
       flash[:alert] = "There was an error deleting the application. Try again."
