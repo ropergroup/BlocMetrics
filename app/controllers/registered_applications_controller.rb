@@ -1,21 +1,26 @@
 class RegisteredApplicationsController < ApplicationController
 
-
-  def create
-      @user = User.find(params[:user_id])
-      @registered_application = @user.registered_applications.new(registered_application_params)
-      @registered_application.user = current_user
-
-      if @registered_application.save
-        flash[:notice] = "Application saved successfully."
-        redirect_to [@user]
-      else
-        flash[:alert] = "Application failed to save."
-        redirect_to [@user]
-      end
+  def show
+    @registered_application = RegisteredApplication.find(params[:id])
   end
 
+  def new
+    @user = current_user
+    @registered_application = RegisteredApplication.new
+  end
 
+  def create
+    @user = current_user
+    @registered_application = @user.registered_applications.create(registered_application_params)
+
+    if @registered_application.save
+      flash[:notice] = "Your site was saved successfully."
+      redirect_to [@user, @registered_application]
+    else
+      flash.now[:alert] = "There was an error. Please try again.."
+      render :new
+    end
+  end
 
   def edit
     @registered_application = RegisteredApplication.find(params[:id])
@@ -35,9 +40,9 @@ class RegisteredApplicationsController < ApplicationController
      end
    end
 
-  def destroy
-      @user = current_user
-      @registered_application = @user.registered_application.find(params[:id])
+   def destroy
+    @user = current_user
+    @registered_application = @user.registered_application.find(params[:id])
 
     if @registered_application.destroy
       flash[:notice] = "The application has been completed!"
@@ -45,10 +50,16 @@ class RegisteredApplicationsController < ApplicationController
       flash[:alert] = "There was an error deleting the application. Try again."
     end
 
-      respond_to do |format|
-        format.html
-        format.js
-      end
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
+  private
+
+  def registered_application_params
+    params.require(:registered_application).permit(:appname, :url)
   end
 
 end
