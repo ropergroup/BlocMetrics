@@ -1,0 +1,5 @@
+<%= content_tag :tr, class: "info", id: "registered_application-#{registered_application.id}" do %>
+  <td><%= registered_application.appname %> </td>
+  <td><%= registered_application.url %></td>
+  <td><%= link_to "", [current_user, registered_application], method: :delete, class: 'glyphicon glyphicon-ok', remote: true %></td>
+<% end %>
