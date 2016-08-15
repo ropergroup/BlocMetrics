@@ -15,7 +15,7 @@ class RegisteredApplicationsController < ApplicationController
 
     if @registered_application.save
       flash[:notice] = "Your site was saved successfully."
-      redirect_to [@user, @registered_application]
+      redirect_to user_registered_application(@registered_application)
     else
       flash.now[:alert] = "There was an error. Please try again.."
       render :new
