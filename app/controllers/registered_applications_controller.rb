@@ -42,7 +42,7 @@ class RegisteredApplicationsController < ApplicationController
 
    def destroy
     @user = current_user
-    @registered_application = @user.registered_application.find(params[:id])
+    @registered_application = @user.registered_applications.find(params[:id])
 
     if @registered_application.destroy
       flash[:notice] = "The application has been completed!"
