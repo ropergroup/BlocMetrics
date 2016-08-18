@@ -22,7 +22,19 @@ require 'faker'
   end
   registered_applications = RegisteredApplication.all
 
+# Create Events
+  30.times do
+
+    Event.create!(
+    user: users.sample,
+    registered_application: registered_applications.sample,
+    name: Faker::Hacker.verb,
+    )
+    end
+    events = Events.all
+
 
  puts "Seed finished"
- puts "#{Item.count} items created"
  puts "#{User.count} users created"
+ puts "#{RegisteredApplication.count} registered_applications created"
+ puts "#{Event.count} events created"
