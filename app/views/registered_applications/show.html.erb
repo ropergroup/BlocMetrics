@@ -17,6 +17,9 @@
             <td><%#= button_to "Edit", edit_user_registered_application_path(@user, @registered_application) %></td>
             <td><%= button_to "Delete", { :action => "destroy" }, :method => :delete %></td>
           </tr>
+          <tr>
+            <td> <%= render @registered_application.events %></td>
+          </tr>
           </tbody>
         </table>
       </div>

@@ -6,6 +6,10 @@ Rails.application.routes.draw do
     resources :registered_applications
   end
 
+  resources :registered_applications do
+    resources :events
+  end
+
   get 'about' => 'welcome#about'
 
   root 'users#show'

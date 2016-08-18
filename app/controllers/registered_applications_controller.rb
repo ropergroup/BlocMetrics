@@ -2,6 +2,7 @@ class RegisteredApplicationsController < ApplicationController
 
   def show
     @registered_application = RegisteredApplication.find(params[:id])
+    @events = @registered_application.events.group_by(&:name)
   end
 
   def new
@@ -12,7 +13,6 @@ class RegisteredApplicationsController < ApplicationController
   def create
     @user = current_user
     @registered_application = @user.registered_applications.create(registered_application_params)
-binding.pry
     if @registered_application.save
       flash[:notice] = "Your site was saved successfully."
       redirect_to user_registered_application_path(@user, @registered_application)
@@ -46,7 +46,7 @@ binding.pry
 
     if @registered_application.destroy
       flash[:notice] = "The application has been completed!"
-      redirect_to user_registered_applications_path(@user, @registered_application)
+      redirect_to root_path(@user, @registered_application)
     else
       flash[:alert] = "There was an error deleting the application. Try again."
     end
