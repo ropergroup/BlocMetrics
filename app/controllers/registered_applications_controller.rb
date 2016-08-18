@@ -12,10 +12,10 @@ class RegisteredApplicationsController < ApplicationController
   def create
     @user = current_user
     @registered_application = @user.registered_applications.create(registered_application_params)
-
+binding.pry
     if @registered_application.save
       flash[:notice] = "Your site was saved successfully."
-      redirect_to user_registered_application(@registered_application)
+      redirect_to user_registered_application_path(@user, @registered_application)
     else
       flash.now[:alert] = "There was an error. Please try again.."
       render :new
@@ -46,6 +46,7 @@ class RegisteredApplicationsController < ApplicationController
 
     if @registered_application.destroy
       flash[:notice] = "The application has been completed!"
+      redirect_to user_registered_applications_path(@user, @registered_application)
     else
       flash[:alert] = "There was an error deleting the application. Try again."
     end

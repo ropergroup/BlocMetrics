@@ -1,23 +1,33 @@
 require 'rails_helper'
 
 RSpec.describe RegisteredApplicationsController, type: :controller do
-  include Devise::Test::ControllerHelpers
 
-  before (:each) do
-    @user = FactoryGirl.create(:user)
-    sign_in @user
-  end
+  let(:user) { create(:user) }
+  let(:registered_application) { create(:registered_application, user: user) }
 
-  describe "create" do
-   it "creates registered application" do
-      expect { post :create, user_id: @user.id, id: registered_application.id, post: {appname: "awesome app", url: "www.test.com"}  }.to change(RegisteredApplication, :count).by(1)
+  describe "POST create" do
+    it "increases the number of registered_application by 1" do
+      expect{ post :create, params: {user_id: user.id, registered_application: {appname: registered_application.appname, url: registered_application.url} } }.to change(RegisteredApplication,:count).by(1)
+    end
+
+    it "increases the sum of registered_applications by 1" do
+      count = user.registered_applications.count
+      post :create, params: {user_id: user.id, registered_application_id: registered_application.id }
+      expect(user.registered_applications.count).to eq(count + 1)
     end
   end
 
-  describe "destroy" do
-   it "creates registered_application" do
-     registered_application = FactoryGirl.create(:registered_application, user_id: @user.id)
-      expect { delete :destroy, user_id: @user.id, id: registered_application.id }.to change(RegisteredApplication, :count).by(-1)
+  describe "DELETE destroy" do
+
+    before do
+      sign_in user
     end
+
+    it "deletes the registered_application" do
+      delete :destroy, params: { user_id: user.id, id: registered_application.id }
+      count = RegisteredApplication.where({id: registered_application.id}).count
+      expect(count).to eq(0)
+    end
+
   end
 end
