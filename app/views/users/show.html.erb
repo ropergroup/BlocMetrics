@@ -1,23 +1,29 @@
 <h1>Registered Applications</h1>
 
+  <div class="row">
+    <div class="col-md-8">
+      <div class="media">
+        <div class="media-body">
+          <div class="media-heading">
+          <div>
+            <% if @user.registered_applications.any? %>
+            <% @user.registered_applications.each do |site| %>
+          </div>
+          <br/>
+          <br/>
 
-  <div class="table-responsive">
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th> Application Name </th>
-          <th> URL</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr >
-          <%=  @user.registered_applications.each do |regapps| %>
-          <p><%= link_to registered_application.title, registered_application_path(registered_application.id) %></p>
-          <% end %>
-        </tr>
-        <tr>
-          <%= button_to "New Application", new_registered_application(@user.registered_application), class: 'btn btn-success' %>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+            <p> <%= link_to site.appname, user_registered_application_path(@user, site) %></P>
+
+            <% end %>
+            <% else %>
+            <p>There is no registered site at this time.</p>
+            <% end %>
+            <div class="col-md-4">
+              <%= link_to "Register a new site", new_user_registered_application_path(@user), class: 'btn btn-success' %>
+              <br/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

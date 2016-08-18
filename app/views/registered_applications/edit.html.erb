@@ -1,0 +1,5 @@
+<h1>Edit Application</h1>
+
+<% if current_user %>
+  <%= render 'registered_applications/form', registered_application: RegisteredApplication.new, user: @user %>
+<% end %>

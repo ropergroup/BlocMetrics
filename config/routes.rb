@@ -1,17 +1,13 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { confirmations: 'confirmations' }
 
-  resources :registered_applications
+  devise_for :users
 
-  get 'welcome/index'
+  resources :users, only: [:show] do
+    resources :registered_applications
+  end
 
-  get 'welcome/about'
-
-
+  get 'about' => 'welcome#about'
 
   root 'users#show'
-
-
-  resources :users
 
 end

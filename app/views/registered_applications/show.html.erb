@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-md-8">
+    <div class="media">
+      <div class="media-body">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Site</th>
+              <th>URL</th>
+            </tr>
+          </thead>
+
+          <tbody>
+          <tr class="site-list">
+            <td><%= @registered_application.appname %> </td>
+            <td><%= @registered_application.url %></td>
+            <td><%#= button_to "Edit", edit_user_registered_application_path(@user, @registered_application) %></td>
+            <td><%= button_to "Delete", { :action => "destroy" }, :method => :delete %></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
