@@ -1,3 +1,3 @@
-ActionSupport::Inflector.inflections(:en) do |inflect|
+ActiveSupport::Inflector.inflections(:en) do |inflect|
   inflect.acronym 'API'
 end
