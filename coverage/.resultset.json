@@ -1,10 +1,38 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/chrisroper/Documents/Bloc/blocmetrics/spec/controllers/events_controller_spec.rb": [
+      "/Users/chrisroper/Documents/Bloc/blocmetrics/spec/controllers/api/events_controller_spec.rb": [
         1,
         null,
         1,
+        null,
+        4,
+        4,
+        4,
+        null,
+        1,
+        1,
+        2,
+        2,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
         null,
         null
       ],
@@ -468,21 +496,8 @@
         1
       ],
       "/Users/chrisroper/Documents/Bloc/blocmetrics/config/initializers/inflections.rb": [
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
+        1,
+        1,
         null
       ],
       "/Users/chrisroper/Documents/Bloc/blocmetrics/config/initializers/mime_types.rb": [
@@ -591,6 +606,11 @@
         null,
         null,
         1,
+        1,
+        1,
+        null,
+        null,
+        1,
         null,
         1,
         null,
@@ -613,30 +633,37 @@
         1,
         null
       ],
-      "/Users/chrisroper/Documents/Bloc/blocmetrics/app/helpers/application_helper.rb": [
+      "/Users/chrisroper/Documents/Bloc/blocmetrics/app/controllers/api/events_controller.rb": [
         1,
-        null
-      ],
-      "/Users/chrisroper/Documents/Bloc/blocmetrics/app/helpers/events_helper.rb": [
+        null,
         1,
-        null
-      ],
-      "/Users/chrisroper/Documents/Bloc/blocmetrics/app/helpers/welcome_helper.rb": [
         1,
-        null
-      ],
-      "/Users/chrisroper/Documents/Bloc/blocmetrics/app/controllers/events_controller.rb": [
         1,
         null,
         null,
         1,
+        3,
+        3,
+        3,
         null,
         null,
+        1,
+        2,
+        2,
+        2,
+        2,
+        null,
+        0,
+        null,
+        null,
+        null,
+        1,
         1,
         null,
         null,
         1,
-        null,
+        1,
+        2,
         null,
         null
       ],
@@ -780,28 +807,12 @@
         null,
         null
       ],
-      "/Users/chrisroper/Documents/Bloc/blocmetrics/spec/helpers/events_helper_spec.rb": [
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        1,
-        null
-      ],
       "/Users/chrisroper/Documents/Bloc/blocmetrics/spec/models/event_spec.rb": [
         1,
         null,
         1,
-        1,
+        null,
+        2,
         null
       ],
       "/Users/chrisroper/Documents/Bloc/blocmetrics/app/models/event.rb": [
@@ -863,6 +874,6 @@
         null
       ]
     },
-    "timestamp": 1471560112
+    "timestamp": 1471698436
   }
 }

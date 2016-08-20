@@ -1,24 +1,23 @@
-# README
+# Blocmetrics
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Blocmetrics is a website for basic website analytics.
 
-Things you may want to cover:
+The Blocmetrics service uses a javascript snippet to send information back to the analytic service.
 
-* Ruby version
+Paste this Javascript snippet on your website for event tracking:
 
-* System dependencies
+var blocmetrics = {};
+ blocmetrics.report = function(eventName){
+   var event = { name: eventName };
+   var request = new XMLHttpRequest();
+   request.open("POST", "http://localhost:3000/api/events", true);
+   request.setRequestHeader('Content-Type','application/json');
+   request.send(JSON.stringify(event));
+ };
 
-* Configuration
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+ <script type="text/javascript">
+   $(document).on("ready page:load", function () {
+      blocmetrics.report("page_view");
+    })
+ </script>
