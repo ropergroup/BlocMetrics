@@ -15,7 +15,7 @@ var blocmetrics = {};
     request.send(JSON.stringify(event));
   }
 
-
+Paste this code on to the page you would like to track:
  <script type="text/javascript">
    $(document).on("ready page:load", function () {
       blocmetrics.report("page_view");
