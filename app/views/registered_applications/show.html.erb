@@ -14,9 +14,13 @@
           <tr class="site-list">
             <td><%= @registered_application.appname %> </td>
             <td><%= @registered_application.url %></td>
-            <td><%= @registered_application.events.count %></td>
-            <td><%#= button_to "Edit", edit_user_registered_application_path(@user, @registered_application) %></td>
             <td><%= button_to "Delete", { :action => "destroy" }, :method => :delete %></td>
+          </tr>
+          <tr>
+            <td><%= pie_chart @registered_application.events.group(:name).count %></td>
+          </tr>
+          <tr>
+            <td><%= line_chart @registered_application.events.group_by_day(:created_at).count %></td>
           </tr>
           <tr class="site-list">
             <td> <%= render @registered_application.events %></td>
