@@ -6,5 +6,4 @@ class User < ApplicationRecord
 
   has_many :registered_applications
   has_many :events
-
 end
