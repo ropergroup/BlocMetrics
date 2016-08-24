@@ -1,2 +1,8 @@
-<h1>Welcome#about</h1>
-<p>Find me in app/views/welcome/about.html.erb</p>
+<h3>Welcome to BlocMetrics</h3>
+
+
+<p>BlocMetrics is an event tracking service that allows you to track which events matter to you.</p>
+<p>To track your Ruby on Rails site paste this snippet into the application.js file:</p>
+<p><code>var blocmetrics = {}; blocmetrics.report = function(eventName){ var event = {event: { name: eventName }}; var request = new XMLHttpRequest(); request.open("POST", "http://localhost:3000/api/events", true); request.setRequestHeader('Content-Type', 'application/json'); request.send(JSON.stringify(event)); }]]</code></p>
+<p>There is a snippet of JavaScript that needs to be placed on the page that you will be tracking. You can find that snippet on the readme page: <a href= "https://github.com/roperxyz/BlocMetrics/blob/master/README.md">https://github.com/roperxyz/BlocMetrics/blob/master/README.md</a></p>
+<code>script type="text/javascript"> $(document).on("ready page:load", function () { blocmetrics.report("page_view"); }) </script</code>
